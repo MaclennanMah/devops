@@ -1,19 +1,11 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: helloworld
+  name: hello-world
 spec:
-  replicas: 2
+  type: ClusterIP
   selector:
-    matchLabels:
-      app: helloworld
-  template:
-    metadata:
-      labels:
-        app: helloworld
-    spec:
-      containers:
-        - name: helloworld
-          image: docker.io/maclennanmah/helloworld:latest
-          ports:
-            - containerPort: 80
+    app: hello-world
+  ports:
+    - port: 80
+      targetPort: 80

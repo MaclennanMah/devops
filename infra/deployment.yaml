@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: helloworld
+  name: hello-world
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: helloworld
+      app: hello-world
   template:
     metadata:
       labels:
-        app: helloworld
+        app: hello-world
     spec:
       containers:
-        - name: angular-app
+        - name: hello-world
           image: docker.io/maclennanmah/helloworld:latest
           ports:
             - containerPort: 80
